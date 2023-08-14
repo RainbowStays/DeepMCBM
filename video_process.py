@@ -27,8 +27,8 @@ def save_frames(video_path, output_folder, image_size):
         # 调整图像尺寸
         frame = cv2.resize(frame, image_size)
 
-        # 每50帧一个单位
-        if frame_count % 50 == 0:
+        # 60帧一个单位
+        if frame_count % 60 == 0:
             unit_name = "unit" + f"{unit_count:05}"
             train_folder_name = os.path.join(output_folder, unit_name + "_train")
             os.makedirs(train_folder_name, exist_ok=True)
@@ -44,8 +44,8 @@ def save_frames(video_path, output_folder, image_size):
             train_frame_count = 0
             test_frame_count = 0
 
-        # 划分前20帧和后30帧
-        if train_frame_count < 20:
+        # 划分前30帧和后30帧
+        if train_frame_count < 30:
             output_path_parent = train_save_path
             sub_frame_count = train_frame_count
             train_frame_count += 1

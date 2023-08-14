@@ -10,9 +10,6 @@ unit_name = ""
 
 while True:
     # train first
-    if unit > 1:
-        break
-
     unit_name = f"unit{unit:05}_train"
     if not os.path.exists(os.path.join("input", unit_name)):
         break
