@@ -16,14 +16,14 @@ while True:
     unit_name = f"unit{unit:05}_train"
     if not os.path.exists(os.path.join("input", unit_name)):
         break
-    arguments = ["--dir " + unit_name]
+    arguments = ["--dir", unit_name]
     subprocess.run(["python", file_path] + arguments)
 
     # test then
     unit_name = f"unit{unit:05}_test"
     if not os.path.exists(os.path.join("input", unit_name)):
         break
-    arguments = ["--dir " + unit_name, "--no_train_BMN", "--no_train_STN"]
+    arguments = ["--dir", unit_name, "--no_train_BMN", "--no_train_STN"]
     subprocess.run(["python", file_path] + arguments)
 
     unit += 1
