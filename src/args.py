@@ -40,7 +40,7 @@ def get_argparser():
 
     # STN training params
     parser.add_argument("--STN_batch_size", type=int, default=16)
-    parser.add_argument("--STN_total_epochs", type=int, default=7000)
+    parser.add_argument("--STN_total_epochs", type=int, default=3000)
     parser.add_argument("--STN_lr", type=float, default=0.005)
     parser.add_argument("--train_STN", dest="train_STN", action="store_true")
     parser.add_argument("--no_train_STN", dest="train_STN", action="store_false")
@@ -126,7 +126,7 @@ def get_argparser():
     parser.add_argument("--fg_threshold_step", type=float, default=0.05)
     parser.add_argument('--no_metrics', dest='calc_metrics', action='store_false')
     parser.add_argument('--metrics', dest='calc_metrics', action='store_true')
-    parser.set_defaults(calc_metrics=True)
+    parser.set_defaults(calc_metrics=False)
 
     parser.add_argument('--pretrain_resnet', dest='pretrain_resnet', action='store_true')
     parser.set_defaults(pretrain_resnet=False)
