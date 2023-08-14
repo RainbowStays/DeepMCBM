@@ -217,7 +217,7 @@ def trim_pixel_stack_(image_stack, mask_stack, trim_percentage, zero_sensitivity
 
 def safe_mkdir(dir_path):
     if not os.path.exists(dir_path):
-        os.mkdir(dir_path)
+        os.makedirs(dir_path, exist_ok=True)
         print(f"create dir : {dir_path}")
         return True
     else:

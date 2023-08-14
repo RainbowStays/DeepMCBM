@@ -29,26 +29,34 @@ def save_frames(video_path, output_folder, image_size):
 
         # 每50帧一个单位
         if frame_count % 50 == 0:
-            unit_folder_name = "unit" + f"{unit_count:05}"
-            unit_folder_path = os.path.join(output_folder, unit_folder_name)
-            os.makedirs(unit_folder_path, exist_ok=True)
+            unit_name = "unit" + f"{unit_count:05}"
+            train_folder_name = os.path.join(output_folder, unit_name + "_train")
+            os.makedirs(train_folder_name, exist_ok=True)
+            sub_folder = "frames"
+            train_save_path = os.path.join(train_folder_name, sub_folder)
+            os.makedirs(train_save_path, exist_ok=True)
+            test_folder_name = os.path.join(output_folder, unit_name + "_test")
+            os.makedirs(train_folder_name, exist_ok=True)
+            sub_folder = "frames"
+            test_save_path = os.path.join(test_folder_name, sub_folder)
+            os.makedirs(test_save_path, exist_ok=True)
             unit_count += 1
             train_frame_count = 0
             test_frame_count = 0
 
         # 划分前20帧和后30帧
         if train_frame_count < 20:
-            sub_folder = "train"
+            output_path_parent = train_save_path
             sub_frame_count = train_frame_count
             train_frame_count += 1
         else:
-            sub_folder = "test"
+            output_path_parent = test_save_path
             sub_frame_count = test_frame_count
             test_frame_count += 1
 
         # 保存图像
         image_name = f"frame{sub_frame_count:05}.jpg"
-        output_path = os.path.join(unit_folder_path, sub_folder, image_name)
+        output_path = os.path.join(output_path_parent, image_name)
         cv2.imwrite(output_path, frame)
 
         frame_count += 1
@@ -58,7 +66,7 @@ def save_frames(video_path, output_folder, image_size):
 
 # 输入视频文件路径和输出文件夹路径
 video_path = "input.mp4"
-output_folder = "videooutput"
+output_folder = "input"
 image_size = (640, 360)
 
 # 处理视频并保存图像
