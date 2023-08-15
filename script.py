@@ -6,21 +6,20 @@ file_path = "src/DeepMCBM.py"
 
 # 从第0单元开始
 unit = 0
-unit_name = ""
 
 while True:
     # train first
-    unit_name = f"unit{unit:05}_train"
-    if not os.path.exists(os.path.join("input", unit_name)):
+    train_name = f"unit{unit:05}_train"
+    if not os.path.exists(os.path.join("input", train_name)):
         break
-    arguments = ["--dir", unit_name]
+    arguments = ["--dir", train_name]
     subprocess.run(["python", file_path] + arguments)
 
     # test then
-    unit_name = f"unit{unit:05}_test"
-    if not os.path.exists(os.path.join("input", unit_name)):
+    test_name = f"unit{unit:05}_test"
+    if not os.path.exists(os.path.join("input", test_name)):
         break
-    arguments = ["--dir", unit_name, "--no_train_BMN", "--no_train_STN"]
+    arguments = ["--dir", test_name, "--no_train_BMN", "--no_train_STN", "--BMN_ckpt", train_name + "_my_run_BMN_best.ckpt"]
     subprocess.run(["python", file_path] + arguments)
 
     unit += 1

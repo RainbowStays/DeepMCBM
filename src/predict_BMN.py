@@ -94,9 +94,11 @@ def main(args,**kwargs):
     video_path = os.path.join(args.parent_dir, args.dir, "frames")
     mse_path = os.path.join(exp_path, "MSE")
     
+    """
     calc_metric_and_MSE(video_path=video_path, bg_path=bg_est_path,
                         gt_path=gt_path, mse_path=mse_path, args=args, method=args.method,
                         overwrite=True)
+    """
 
 if __name__ == "__main__":
     parser = ARGS.get_argparser()
