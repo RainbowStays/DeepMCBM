@@ -130,7 +130,7 @@ def main(args,**kwargs):
         if epoch_loss < min_loss:
             min_loss = epoch_loss
             utils.save_model(ckpt_path+"_BMN_best.ckpt",bmn,optimizer,scheduler)
-            if min_loss < 0.025:
+            if min_loss < 0.03:
                 break
     # end of training
     utils.save_model(ckpt_path+"_BMN_last.ckpt",bmn,optimizer,scheduler)
