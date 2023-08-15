@@ -5,7 +5,7 @@ import os
 file_path = "src/DeepMCBM.py"
 
 # 从第2单元开始
-unit = 2
+unit = 3
 
 while True:
     # train first
