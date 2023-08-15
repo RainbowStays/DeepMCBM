@@ -144,6 +144,7 @@ def calc_metric_and_MSE(video_path, bg_path, gt_path, mse_path, args, method="",
     # mignt need to resize frame to background``
     # if exist we can continue, otherwise we'll calc MSE and save at dir
     generate_mse(video_path, bg_path, mse_path)
+    """
     FPR, TPR, AUC = calc_roc(mse_dir=mse_path, gt_dir=gt_path, gt_shape=args.source_shape,
                         mse_shape=args.mask_shape,CDNet=args.CDNet)
 
@@ -152,4 +153,7 @@ def calc_metric_and_MSE(video_path, bg_path, gt_path, mse_path, args, method="",
     print("TPR len:", len(TPR))
     print("FPR len:", len(FPR))
     print("AUC score:", AUC)
+    
     return FPR, TPR
+    """
+    return None

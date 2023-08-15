@@ -22,4 +22,13 @@ while True:
     arguments = ["--dir", test_name, "--no_train_BMN", "--no_train_STN", "--BMN_ckpt", train_name + "_my_run_BMN_best.ckpt"]
     subprocess.run(["python", file_path] + arguments)
 
+    # delete checkpoints
+    to_delete = [train_name + "_my_run_BMN_best.ckpt", train_name + "_my_run_BMN_last.ckpt", train_name + "_my_run_STN_best.ckpt", train_name + "_my_run_STN_last.ckpt"]
+    try:
+        for file_name in to_delete:
+            os.remove(os.path.join("checkpoints", file_name))
+            print(f"文件 {file_name} 已成功删除")
+    except OSError as error:
+        print(f"无法删除文件：{error}")
+
     unit += 1
