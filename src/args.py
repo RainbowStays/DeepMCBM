@@ -40,7 +40,7 @@ def get_argparser():
 
     # STN training params
     parser.add_argument("--STN_batch_size", type=int, default=16)
-    parser.add_argument("--STN_total_epochs", type=int, default=1200)
+    parser.add_argument("--STN_total_epochs", type=int, default=1000)
     parser.add_argument("--STN_lr", type=float, default=0.005)
     parser.add_argument("--train_STN", dest="train_STN", action="store_true")
     parser.add_argument("--no_train_STN", dest="train_STN", action="store_false")
@@ -85,7 +85,7 @@ def get_argparser():
 
     # AE training params
     parser.add_argument("--AE_batch_size", type=int, default=16)
-    parser.add_argument("--AE_total_epochs", type=int, default=800)
+    parser.add_argument("--AE_total_epochs", type=int, default=600)
     parser.add_argument("--AE_lr", type=float, default=0.0001)
     
     ## AE scheduler args 
