@@ -1,6 +1,7 @@
 # dataset
 /input
 input.mp4
+/final_video
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
