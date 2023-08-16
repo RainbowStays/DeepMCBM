@@ -4,8 +4,8 @@ import os
 # 定义要运行的.py文件路径
 file_path = "src/DeepMCBM.py"
 
-# 从第2单元开始
-unit = 3
+# 从第40单元开始
+unit = 40
 
 while True:
     # train first
